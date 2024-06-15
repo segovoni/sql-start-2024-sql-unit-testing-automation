@@ -21,7 +21,6 @@ BEGIN
      Avoid to insert products with safety stock level lower than 10!
   */
   
-  
   DECLARE @SafetyStockLevel SMALLINT;
 
   SELECT
@@ -40,11 +39,11 @@ BEGIN
   -- Testing all rows in the Inserted virtual table
   IF EXISTS (
              SELECT
-			   i.ProductID
+               i.ProductID
              FROM
-			   inserted AS i
+               inserted AS i
              WHERE
-			   (i.SafetyStockLevel < 10)
+               (i.SafetyStockLevel < 10)
             )
   BEGIN
     -- Error!!
